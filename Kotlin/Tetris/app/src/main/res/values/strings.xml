@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tetris</string>
+    <string name="title_of_game">TETRIS</string>
+    <string name="tv_zero_score">High score: 0</string>
+    <string name="text_btn_new_game">New game</string>
+    <string name="text_btn_reset_score">Reset score</string>
+    <string name="text_btn_exit">exit</string>
+    <string name="current_score">current score</string>
+    <string name="high_score">high score</string>
+    <string name="btn_restart">restart</string>
+</resources>

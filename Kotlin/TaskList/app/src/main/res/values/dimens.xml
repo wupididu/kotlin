@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_padding">16dp</dimen>
+    <dimen name="size_action_bar">50dp</dimen>
+    <dimen name="large_text_size">24sp</dimen>
+    <dimen name="vertical_padding">8dp</dimen>
+    <dimen name="margin_of_task_item">8dp</dimen>
+    <dimen name="title_task_text_size">20sp</dimen>
+</resources>
