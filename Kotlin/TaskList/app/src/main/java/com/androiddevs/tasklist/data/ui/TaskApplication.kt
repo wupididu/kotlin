@@ -1,8 +1,11 @@
 package com.androiddevs.tasklist.data.ui
 
 import android.app.Application
-import com.androiddevs.tasklist.data.db.TaskDatabase
+import com.androiddevs.tasklist.data.db.database.NotesDatabase
+import com.androiddevs.tasklist.data.db.database.TaskDatabase
+import com.androiddevs.tasklist.data.repositories.NotesRepository
 import com.androiddevs.tasklist.data.repositories.TaskRepository
+import com.androiddevs.tasklist.data.ui.tasklist.NoteViewModelFactory
 import com.androiddevs.tasklist.data.ui.tasklist.TaskViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -19,6 +22,12 @@ class TaskApplication: Application(), KodeinAware {
         bind() from singleton { TaskRepository(instance()) }
         bind() from provider {
             TaskViewModelFactory(instance())
+        }
+
+        bind() from singleton { NotesDatabase(instance()) }
+        bind() from singleton { NotesRepository(instance()) }
+        bind() from provider {
+            NoteViewModelFactory(instance())
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.androiddevs.tasklist.data.db
+package com.androiddevs.tasklist.data.db.Dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

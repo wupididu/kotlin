@@ -1,6 +1,6 @@
 package com.androiddevs.tasklist.data.repositories
 
-import com.androiddevs.tasklist.data.db.TaskDatabase
+import com.androiddevs.tasklist.data.db.database.TaskDatabase
 import com.androiddevs.tasklist.data.db.entities.TaskItem
 
 class TaskRepository(

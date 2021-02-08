@@ -5,17 +5,15 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "task_item")
-class TaskItem(
-    @ColumnInfo(name = "task_title")
+@Entity(tableName = "notes_item")
+class NotesItem(
+    @ColumnInfo(name = "notes_title")
     var title: String,
-    @ColumnInfo(name = "task_description")
+    @ColumnInfo(name = "notes_description")
     var description: String,
-    @ColumnInfo(name = "task_isDone")
-    var isDone: Boolean = false,
-    @ColumnInfo(name = "task_date")
+    @ColumnInfo(name = "notes_date")
     var date: String
-) {
+){
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 }

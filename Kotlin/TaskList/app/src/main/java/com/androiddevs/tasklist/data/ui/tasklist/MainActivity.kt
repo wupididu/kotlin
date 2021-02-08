@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androiddevs.tasklist.R
 import com.androiddevs.tasklist.data.other.TaskAdapter
+import com.androiddevs.tasklist.data.ui.TaskApplication
 import com.androiddevs.tasklist.data.ui.fragments.NoteFragment
 import com.androiddevs.tasklist.data.ui.fragments.TaskListFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,17 +31,13 @@ import org.kodein.di.generic.instance
 
 
 @Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity(), KodeinAware {
-
-    override val kodein: Kodein by kodein()
-    private val factory: TaskViewModelFactory by instance()
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val taskListFragment = TaskListFragment(factory, this)
-        val noteFragment = NoteFragment()
+        val taskListFragment = TaskListFragment(this)
+        val noteFragment = NoteFragment(this)
 
         makeCurrentFragment(taskListFragment)
 
@@ -51,7 +48,6 @@ class MainActivity : AppCompatActivity(), KodeinAware {
             }
             true
         }
-
     }
 
     private fun makeCurrentFragment(fragment: Fragment) =

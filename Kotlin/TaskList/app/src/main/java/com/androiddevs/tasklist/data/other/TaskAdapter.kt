@@ -35,11 +35,14 @@ class TaskAdapter(
 
         holder.itemView.tvTitle.text = curTask.title
         holder.itemView.cbIsDone.isChecked = curTask.isDone
+        holder.itemView.tv_task_Date.text = curTask.date
+
 
         holder.itemView.setOnClickListener{
 
             val intent = Intent(context, AddActivity::class.java).apply {
-
+                putExtra(Constants.FROM_KEY, Constants.TASK_FRAGMENT)
+                putExtra(Constants.NEW, false)
                 putExtra(Constants.ID, curTask.id)
                 putExtra(Constants.DESCRIPTION_KEY, curTask.description)
                 putExtra(Constants.TITLE_KEY, curTask.title)
@@ -50,7 +53,8 @@ class TaskAdapter(
 
         holder.itemView.cbIsDone.setOnClickListener {
 
-            val task = TaskItem(curTask.title,curTask.description, holder.itemView.cbIsDone.isChecked)
+            val task = TaskItem(curTask.title,curTask.description,
+                holder.itemView.cbIsDone.isChecked, curTask.date)
 
             curTask.id?.let { it1 -> viewModel.deleteById(it1) }
             viewModel.insert(task)
