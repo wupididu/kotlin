@@ -24,6 +24,14 @@
             android:layout_marginTop="16dp"/>
 
         <TextView
+            android:id="@+id/tv_note_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text"
+            android:textSize="16sp"
+            android:layout_marginLeft="24dp"/>
+
+        <TextView
             android:id="@+id/tv_note_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

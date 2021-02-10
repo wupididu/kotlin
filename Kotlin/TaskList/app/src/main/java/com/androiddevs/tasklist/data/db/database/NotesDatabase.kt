@@ -10,7 +10,7 @@ import com.androiddevs.tasklist.data.db.entities.NotesItem
 
 @Database(
     entities = [NotesItem::class],
-    version = 1
+    version = 2
 )
 abstract class NotesDatabase: RoomDatabase() {
     abstract fun getNotesDao(): NotesDao

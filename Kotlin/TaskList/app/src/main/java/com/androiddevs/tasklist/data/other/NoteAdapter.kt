@@ -11,6 +11,7 @@ import com.androiddevs.tasklist.data.db.entities.NotesItem
 import com.androiddevs.tasklist.data.ui.tasklist.AddActivity
 import com.androiddevs.tasklist.data.ui.tasklist.NotesViewModel
 import kotlinx.android.synthetic.main.note_item.view.*
+import java.text.SimpleDateFormat
 
 class NoteAdapter(
     var noteList: List<NotesItem>,
@@ -29,9 +30,11 @@ class NoteAdapter(
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val curTask = noteList[position]
 
+        val sdf = SimpleDateFormat("dd.MM.yyyy hh:mm:ss")
 
         holder.itemView.tv_note_title.text = curTask.title
-        holder.itemView.tv_note_date.text = curTask.date
+        holder.itemView.tv_note_desc.text = (curTask.description.substringBefore(" ") + "...")
+        holder.itemView.tv_note_date.text = sdf.format(curTask.date)
 
         holder.itemView.setOnClickListener{
             val intent = Intent(context, AddActivity::class.java).apply {

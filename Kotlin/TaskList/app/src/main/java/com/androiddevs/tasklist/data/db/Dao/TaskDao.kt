@@ -13,7 +13,7 @@ interface TaskDao {
     @Delete
     suspend fun delete(task: TaskItem)
 
-    @Query("SELECT * FROM task_item ORDER BY task_isDone ASC, id DESC")
+    @Query("SELECT * FROM task_item ORDER BY task_isDone ASC, task_date DESC")
     fun gatAllTaskList(): LiveData<List<TaskItem>>
 
     @Query("DElETE FROM task_item WHERE id = :id")

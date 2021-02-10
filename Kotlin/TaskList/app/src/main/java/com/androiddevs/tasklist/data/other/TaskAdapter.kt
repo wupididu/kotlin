@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.task_item.*
 import kotlinx.android.synthetic.main.task_item.view.*
+import java.text.SimpleDateFormat
 
 class TaskAdapter(
     var taskList: List<TaskItem>,
@@ -33,9 +34,12 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val curTask = taskList[position]
 
+        val sdf = SimpleDateFormat("dd.MM.yyyy hh:mm:ss")
+
         holder.itemView.tvTitle.text = curTask.title
         holder.itemView.cbIsDone.isChecked = curTask.isDone
-        holder.itemView.tv_task_Date.text = curTask.date
+        holder.itemView.tv_task_desc.text = (curTask.description.substringBefore(" ") + "...")
+        holder.itemView.tv_task_Date.text = sdf.format(curTask.date)
 
 
         holder.itemView.setOnClickListener{

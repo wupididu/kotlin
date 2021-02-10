@@ -14,17 +14,19 @@
         android:id="@+id/edit_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:ems="10"
         android:hint="@string/default_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="@dimen/large_text_size"/>
+        android:textSize="@dimen/large_text_size" />
 
     <EditText
         android:id="@+id/edit_description_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:inputType="textMultiLine"
         android:ems="10"
         android:gravity="start"
         android:hint="@string/default_description"

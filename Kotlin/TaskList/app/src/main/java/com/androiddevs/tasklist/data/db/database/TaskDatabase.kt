@@ -10,7 +10,7 @@ import com.androiddevs.tasklist.data.db.entities.TaskItem
 
 @Database(
     entities = [TaskItem::class],
-    version = 1
+    version = 2
 )
 abstract class TaskDatabase: RoomDatabase() {
     abstract fun getTaskDao(): TaskDao

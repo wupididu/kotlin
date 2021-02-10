@@ -16,6 +16,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.*
 
 @Suppress("DEPRECATION")
@@ -45,8 +46,6 @@ class AddActivity : AppCompatActivity(), KodeinAware {
             val title = edit_title_text.text.toString()
             if(desc != "" && title != ""){
 
-                val sdf = SimpleDateFormat("dd.MM.yyyy")
-                val currentDate = sdf.format(Date())
 
                 when(intent.getStringExtra(Constants.FROM_KEY)){
                     Constants.TASK_FRAGMENT -> {
@@ -55,7 +54,7 @@ class AddActivity : AppCompatActivity(), KodeinAware {
                             viewModelT.deleteById(intent.getIntExtra(Constants.ID, 0))
                         }
 
-                        viewModelT.insert(TaskItem(title = title, description = desc, date = currentDate))
+                        viewModelT.insert(TaskItem(title = title, description = desc, date = Date().time))
                     }
                     Constants.NOTE_FRAGMENT -> {
                         if(intent.getIntExtra(Constants.ID, 0) != 0){
@@ -64,7 +63,7 @@ class AddActivity : AppCompatActivity(), KodeinAware {
                         }
 
 
-                        viewModelN.insert(NotesItem(title = title, description = desc, date = currentDate))
+                        viewModelN.insert(NotesItem(title = title, description = desc, date = Date().time))
                     }
                 }
 
